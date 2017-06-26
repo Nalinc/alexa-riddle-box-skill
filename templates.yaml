@@ -1,0 +1,7 @@
+welcome: Welcome to the riddle box. I'm going to ask a riddle and you need to guess the correct answer. Ready?
+
+round: {{ question }}
+
+right: Good job! Would you like to play again?
+
+wrong: Sorry, that's the wrong answer.
