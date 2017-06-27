@@ -1,7 +1,5 @@
-welcome: Welcome to the riddle box. I'm going to ask a riddle and you need to guess the correct answer. Ready?
+welcome: Welcome to riddlebox. I'm going to ask you a riddle. Try to answer. Ready?
 
-round: {{ question }}
-
-right: Good job! Would you like to play again?
+right: Good job!
 
 wrong: Sorry, that's the wrong answer.

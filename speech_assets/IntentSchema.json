@@ -6,16 +6,8 @@
     {
       "slots": [
         {
-          "name": "first",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "second",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "third",
-          "type": "AMAZON.NUMBER"
+          "name": "answer",
+          "type": "AMAZON.LITERAL"
         }
       ],
       "intent": "AnswerIntent"
