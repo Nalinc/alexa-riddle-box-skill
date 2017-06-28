@@ -35,6 +35,12 @@ def next_round():
         question_index = 0
     return question(round_msg)
 
+@ask.intent("NoIntent")
+def end_round():
+    round_msg = render_template('gameover')
+    question_index = 0
+    return question(round_msg)
+
 @ask.intent("AnswerIntent", convert={'answer_response': str})
 def answer(answer_response):
     global question_index, incorrect_guesses
