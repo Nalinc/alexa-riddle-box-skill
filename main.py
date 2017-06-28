@@ -11,41 +11,45 @@ db_collection = db.riddles
 
 riddles=[]
 riddles = list(db_collection.find())
-print("*** --- ***")
-print(riddles)
 
 ask = Ask(app, "/")
+
+question_index = 0
+incorrect_guesses = 0
 
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 @ask.launch
 def new_game():
-    count = 0
-    print(riddles[count]["question"])
     welcome_msg = render_template('welcome')
     return question(welcome_msg)
 
 @ask.intent("YesIntent")
 def next_round():
-    #numbers = [randint(0, 9) for _ in range(3)]
-    count = 0
-    print(riddles[count]["question"])
-    round_msg = riddles[count]["question"]
+    global question_index
+    if question_index < len(riddles):
+        print(riddles[question_index]["question"])
+        round_msg = riddles[question_index]["question"]
+    else:
+        round_msg = render_template('gameover')
+        question_index = 0
     return question(round_msg)
 
-@ask.intent("AnswerIntent", convert={'answer': str})
-def answer(answer):
-    count = 0
-    print(riddles[count]["answer"])
-    #winning_numbers = session.attributes['numbers']
-    if riddles[count]["answer"] == answer:
+@ask.intent("AnswerIntent", convert={'answer_response': str})
+def answer(answer_response):
+    global question_index, incorrect_guesses
+    print(answer_response)
+    print(riddles[question_index]["answer"])
+    if riddles[question_index]["answer"] == answer_response:
         msg = render_template('right')
+        question_index += 1
+        incorrect_guesses = 0
+    elif incorrect_guesses < 2 and riddles[question_index]["hints"][incorrect_guesses]:
+        msg = riddles[question_index]["hints"][incorrect_guesses]
+        incorrect_guesses += 1
     else:
         msg = render_template('wrong')
     return statement(msg)
 
 if __name__ == '__main__':
-    riddles = list(db_collection.find())
-    print("### --- ###")
-    print(riddles)
     app.run(debug=True)

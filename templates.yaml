@@ -1,5 +1,7 @@
-welcome: Welcome to riddlebox. I'm going to ask you a riddle. Try to answer. Ready?
+welcome: Welcome to riddle diddle. I'm going to ask you some riddles with mostly one word answers. Are you ready?
 
-right: Good job!
+right: Right answer! Would you like to have more riddles?
 
-wrong: Sorry, that's the wrong answer.
+wrong: Sorry, that's the wrong answer. Do you want to play again?
+
+gameover: Thank you for playing Riddle Diddle. New riddles will come shortly. Stay Tuned.

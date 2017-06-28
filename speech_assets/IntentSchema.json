@@ -1,13 +1,19 @@
 {
   "intents": [
     {
+      "slots": [
+        {
+          "name": "affirmative_response",
+          "type": "AFFIRMATIVE_RESPONSE"
+        }
+      ],
       "intent": "YesIntent"
     },
     {
       "slots": [
         {
-          "name": "answer",
-          "type": "AMAZON.LITERAL"
+          "name": "answer_response",
+          "type": "AMAZON.Language"
         }
       ],
       "intent": "AnswerIntent"

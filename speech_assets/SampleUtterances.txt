@@ -1,4 +1,5 @@
-YesIntent yes
-YesIntent sure
-AnswerIntent {response|answer}
-AnswerIntent Is it {response|answer}
+YesIntent {affirmative_response}
+AnswerIntent {answer_response}
+AnswerIntent Is it {answer_response}
+AnswerIntent Is {answer_response} the correct answer
+AnswerIntent Is {answer_response} the right answer
