@@ -10,6 +10,9 @@ db = db_client.riddles
 db_collection = db.riddles
 
 riddles=[]
+riddles = list(db_collection.find())
+print("*** --- ***")
+print(riddles)
 
 ask = Ask(app, "/")
 
@@ -43,5 +46,6 @@ def answer(answer):
 
 if __name__ == '__main__':
     riddles = list(db_collection.find())
+    print("### --- ###")
     print(riddles)
     app.run(debug=True)
