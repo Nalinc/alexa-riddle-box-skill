@@ -17,23 +17,22 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 @ask.launch
 def new_game():
-    count = session.attributes['count'] = 0
+    count = 0
     print(riddles[count]["question"])
     welcome_msg = render_template('welcome')
     return question(welcome_msg)
 
 @ask.intent("YesIntent")
 def next_round():
-    numbers = [randint(0, 9) for _ in range(3)]
-    session.attributes['count'] = 1
-    count = session.attributes['count']
+    #numbers = [randint(0, 9) for _ in range(3)]
+    count = 0
     print(riddles[count]["question"])
     round_msg = riddles[count]["question"]
     return question(round_msg)
 
 @ask.intent("AnswerIntent", convert={'answer': str})
 def answer(answer):
-    count = session.attributes['count']
+    count = 0
     print(riddles[count]["answer"])
     #winning_numbers = session.attributes['numbers']
     if riddles[count]["answer"] == answer:
@@ -44,4 +43,5 @@ def answer(answer):
 
 if __name__ == '__main__':
     riddles = list(db_collection.find())
+    print(riddles)
     app.run(debug=True)
