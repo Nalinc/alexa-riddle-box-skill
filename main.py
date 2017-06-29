@@ -64,6 +64,7 @@ def answer(answer_response):
         incorrect_guesses += 1
     else:
         msg = render_template('wrong')
+        incorrect_guesses = 0
     return question(msg)
 
 if __name__ == '__main__':
