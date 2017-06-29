@@ -43,8 +43,9 @@ def next_round():
         return statement(round_msg)
 
 
-@ask.intent("AMAZON.StopIntent")
 @ask.intent("NoIntent")
+@ask.intent("AMAZON.StopIntent")
+@ask.intent("AMAZON.CancelIntent")
 def end_round():
     print('---end round---')
     print(session.attributes['question_index'])
