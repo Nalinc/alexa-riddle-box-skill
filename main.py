@@ -24,21 +24,30 @@ def new_game():
     welcome_msg = render_template('welcome')
     return question(welcome_msg)
 
+@ask.intent("ResumeRiddle")
+@ask.intent("RepeatRiddle")
 @ask.intent("YesIntent")
 def next_round():
     global question_index
     if question_index < len(riddles):
         print(riddles[question_index]["question"])
         round_msg = riddles[question_index]["question"]
+        return question(round_msg)
     else:
         round_msg = render_template('gameover')
         question_index = 0
-    return question(round_msg)
+        return statement(round_msg)
 
+@ask.intent("AMAZON.StopIntent")
 @ask.intent("NoIntent")
 def end_round():
     round_msg = render_template('gameover')
     question_index = 0
+    return statement(round_msg)
+
+@ask.intent("AMAZON.HelpIntent")
+def help_requested():
+    round_msg = render_template('help')
     return question(round_msg)
 
 @ask.intent("AnswerIntent", convert={'answer_response': str})
@@ -55,7 +64,7 @@ def answer(answer_response):
         incorrect_guesses += 1
     else:
         msg = render_template('wrong')
-    return statement(msg)
+    return question(msg)
 
 if __name__ == '__main__':
     app.run(debug=True)

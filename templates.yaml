@@ -2,6 +2,8 @@ welcome: Welcome to riddle diddle. I'm going to ask you some riddles with mostly
 
 right: Right answer! Would you like to have more riddles?
 
-wrong: Sorry, that's the wrong answer. Do you want to play again?
+wrong: Sorry, you have given too many wrong answers. Do you want to play again?
 
-gameover: Thank you for playing Riddle Diddle. New riddles will come shortly. Stay Tuned.
+gameover: Thank you for playing riddle diddle. New riddles will come shortly. Stay Tuned.
+
+help: Welcome to riddle diddle help centre. Try to solve as many riddles as you can. If you answer incorrectly, a hint will follow. Say yes or no where ever prompted. If you want to repeat a question, say 'repeat the riddle'. If you want to resume the game, say 'continue riddle diddle'. Say 'exit' if you want to end this session.
