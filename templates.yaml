@@ -6,4 +6,4 @@ wrong: Sorry, you have given too many wrong answers. Do you want to play again?
 
 gameover: Thank you for playing riddle diddle. New riddles will come shortly. Stay Tuned.
 
-help: Try to solve as many riddles as you can. If you answer incorrectly, a hint will follow. Say yes or no where ever prompted. If you want to repeat a question, say 'repeat the riddle'. If you want to resume the game, say 'restore session'. Say 'exit' if you want to end this session.
+help: Try to solve as many riddles as you can. If you answer incorrectly, a hint will follow. Say yes or no where ever prompted. If you want to repeat a question, say 'repeat the riddle'. If you want to resume the game, say 'continue riddle diddle'. Say 'exit' if you want to end this session.
