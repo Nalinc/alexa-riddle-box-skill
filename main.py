@@ -21,16 +21,21 @@ logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
 @ask.launch
 def new_game():
+    global riddles
     welcome_msg = render_template('welcome')
+    print('---start---')
     print(riddles)
     print(len(riddles))
     return question(welcome_msg)
+
 
 @ask.intent("ResumeRiddle")
 @ask.intent("RepeatRiddle")
 @ask.intent("YesIntent")
 def next_round():
-    global question_index
+    global question_index, riddles
+    print('---next question---')
+    print(question_index)
     if question_index < len(riddles):
         print(riddles[question_index]["question"])
         round_msg = riddles[question_index]["question"]
@@ -40,23 +45,33 @@ def next_round():
         question_index = 0
         return statement(round_msg)
 
+
 @ask.intent("AMAZON.StopIntent")
 @ask.intent("NoIntent")
 def end_round():
+    global question_index, riddles
+    print('---end round---')
+    print(question_index)
     round_msg = render_template('gameover')
     question_index = 0
     return statement(round_msg)
 
+
 @ask.intent("AMAZON.HelpIntent")
 def help_requested():
+    global question_index, riddles
+    print('---help---')
+    print(question_index)
     round_msg = render_template('help')
     return question(round_msg)
 
+
 @ask.intent("AnswerIntent", convert={'answer_response': str})
 def answer(answer_response):
-    global question_index, incorrect_guesses
+    global question_index, incorrect_guesses, riddles
+    print('---answer---')
     print(answer_response)
-    print(riddles[question_index]["answer"])
+    print(question_index)
     if riddles[question_index]["answer"] == answer_response:
         msg = render_template('right')
         question_index += 1
