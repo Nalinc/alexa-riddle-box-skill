@@ -12,6 +12,27 @@
     {
       "slots": [
         {
+          "name": "negative_response",
+          "type": "NEGATIVE_RESPONSE"
+        }
+      ],
+      "intent": "NoIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "RepeatRiddle"
+    },
+    {
+      "intent": "ResumeRiddle"
+    },
+    {
+      "slots": [
+        {
           "name": "answer_response",
           "type": "AMAZON.Language"
         }

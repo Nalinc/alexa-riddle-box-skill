@@ -1,4 +1,8 @@
 YesIntent {affirmative_response}
+NoIntent {negative_response}
+RepeatRiddle Repeat the riddle
+RepeatRiddle Repeat the question
+ResumeRiddle Continue riddle diddle
 AnswerIntent {answer_response}
 AnswerIntent Is it {answer_response}
 AnswerIntent Is {answer_response} the correct answer
