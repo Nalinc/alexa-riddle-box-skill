@@ -74,11 +74,11 @@ def answer(answer_response):
     print(question_index)
     if riddles[question_index]["answer"] == answer_response:
         msg = render_template('right')
-        question_index += 1
+        question_index = question_index + 1
         incorrect_guesses = 0
     elif incorrect_guesses < 2 and riddles[question_index]["hints"][incorrect_guesses]:
         msg = riddles[question_index]["hints"][incorrect_guesses]
-        incorrect_guesses += 1
+        incorrect_guesses = incorrect_guesses + 1
     else:
         msg = render_template('wrong')
         incorrect_guesses = 0
